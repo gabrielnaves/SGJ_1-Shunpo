@@ -7,6 +7,7 @@ public enum InputAxes {
     vertical,
     jump,
     daggerThrow,
+    preparation,
     shunpo,
     slowMotion
 }
@@ -20,6 +21,7 @@ public class GameInput : MonoBehaviour {
         "Vertical",
         "Jump",
         "DaggerThrow",
+        "Preparation",
         "Shunpo",
         "SlowMotion"
     };
