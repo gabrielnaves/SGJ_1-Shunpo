@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMask:
     serializedVersion: 2
-    m_Bits: 4294965193
+    m_Bits: 4294961097
 --- !u!114 &114890883170598930
 MonoBehaviour:
   m_ObjectHideFlags: 1

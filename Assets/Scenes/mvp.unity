@@ -1265,9 +1265,9 @@ GameObject:
   - component: {fileID: 1920337752}
   - component: {fileID: 1920337753}
   - component: {fileID: 1920337754}
-  - component: {fileID: 1920337755}
   - component: {fileID: 1920337756}
-  m_Layer: 9
+  - component: {fileID: 1920337755}
+  m_Layer: 15
   m_Name: Flurry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1352,7 +1352,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1920337751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf93ccf237c9dfe43885422854c20b10, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bd9b770c4e343841aa18eb8f6bdf87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damagingLayers:

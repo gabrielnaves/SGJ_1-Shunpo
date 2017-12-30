@@ -22,6 +22,7 @@ public class KatarinaShunpo : MonoBehaviour {
         if (hit)
             if ((wallMasks.value & 1 << hit.transform.gameObject.layer) != 0)
                 distance = distance.normalized * (hit.distance - 1);
+        distance.y -= GetComponent<SpriteRenderer>().bounds.extents.y;
         transform.position += (Vector3) distance;
     }
 }
