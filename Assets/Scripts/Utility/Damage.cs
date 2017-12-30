@@ -7,7 +7,7 @@ public class Damage : MonoBehaviour {
     public LayerMask damagingLayers;
 
     void OnCollisionEnter2D(Collision2D other) {
-        if ((damagingLayers.value & 1 << other.gameObject.layer) != 0) {
+        if ((damagingLayers.value & 1 << other.gameObject.layer) != 0 && enabled) {
             var hitpoints = other.gameObject.GetComponent<HitPoints>();
             if (hitpoints)
                 hitpoints.DealDamage();

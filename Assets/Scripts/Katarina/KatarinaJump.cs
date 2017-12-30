@@ -6,6 +6,7 @@ public class KatarinaJump : MonoBehaviour {
 
     public float jumpSpeed = 10f;
     public float maxJumpHeight = 4f;
+    public float minJumpHeight = 2f;
 
     float startingHeight;
     Rigidbody2D rigidbody2d;
@@ -21,17 +22,26 @@ public class KatarinaJump : MonoBehaviour {
 
     void FixedUpdate() {
         if (!jumping && groundcheck.onGround && GameInput.GetAxis(InputAxes.jump) == 1) {
-            jumping = true;
-            startingHeight = transform.position.y;
-            animator.SetTrigger("jumped");
+            Jump();
         }
         else if (jumping) {
             rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpSpeed);
-            if (GameInput.GetAxis(InputAxes.jump) != 1 || transform.position.y - startingHeight > maxJumpHeight) {
+            if (ShouldEndJump()) {
                 jumping = false;
                 rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpSpeed / 2);
                 animator.SetTrigger("endedJump");
             }
         }
+    }
+
+    public void Jump() {
+        jumping = true;
+        startingHeight = transform.position.y;
+        animator.SetTrigger("jumped");
+    }
+
+    bool ShouldEndJump() {
+        return (GameInput.GetAxis(InputAxes.jump) != 1 || transform.position.y - startingHeight > maxJumpHeight)
+               && transform.position.y - startingHeight > minJumpHeight;
     }
 }

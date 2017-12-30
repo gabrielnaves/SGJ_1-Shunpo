@@ -118,7 +118,7 @@ Rigidbody2D:
   m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -238,8 +238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ricochetVelocity: 10
-  gravityScale: 5
   angularVelocity: 4
+  maxLifetime: 3
+  lifetime: 0
 --- !u!212 &212797051357388702
 SpriteRenderer:
   m_ObjectHideFlags: 1
