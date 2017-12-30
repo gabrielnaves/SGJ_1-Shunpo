@@ -7,6 +7,8 @@ TagManager:
   - Floor
   - Groundcheck
   - Dagger
+  - Enemy
+  - Arrow
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - Groundcheck
   - Enemy
   - Dagger
-  - 
+  - Arrow
   - 
   - 
   - 
@@ -43,6 +45,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 729012025
     locked: 0
   - name: Enemies
     uniqueID: 3174231377
