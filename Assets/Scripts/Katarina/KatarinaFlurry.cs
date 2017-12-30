@@ -37,6 +37,7 @@ public class KatarinaFlurry : MonoBehaviour {
         katarina.GetComponent<BoxCollider2D>().enabled = false;
         katarina.GetComponent<KatarinaMovement>().enabled = false;
         katarina.GetComponent<KatarinaJump>().enabled = false;
+        katarina.GetComponent<KatarinaShunpo>().enabled = false;
         gravityScale = katarina.GetComponent<Rigidbody2D>().gravityScale;
         katarina.GetComponent<Rigidbody2D>().gravityScale = 0;
         katarina.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -48,6 +49,7 @@ public class KatarinaFlurry : MonoBehaviour {
         katarina.GetComponent<SpriteRenderer>().enabled = true;
         katarina.GetComponent<BoxCollider2D>().enabled = true;
         katarina.GetComponent<KatarinaMovement>().enabled = true;
+        katarina.GetComponent<KatarinaShunpo>().enabled = true;
         katarina.GetComponent<KatarinaJump>().enabled = true;
         katarina.GetComponent<KatarinaJump>().Jump();
         katarina.GetComponent<Rigidbody2D>().gravityScale = gravityScale;

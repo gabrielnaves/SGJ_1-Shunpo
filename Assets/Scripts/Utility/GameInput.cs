@@ -7,6 +7,7 @@ public enum InputAxes {
     vertical,
     jump,
     daggerThrow,
+    shunpo,
     slowMotion
 }
 
@@ -19,6 +20,7 @@ public class GameInput : MonoBehaviour {
         "Vertical",
         "Jump",
         "DaggerThrow",
+        "Shunpo",
         "SlowMotion"
     };
 
@@ -46,6 +48,12 @@ public class GameInput : MonoBehaviour {
 
     public static bool GetAxisUp(InputAxes axis) {
         return Input.GetAxis(axes[(int)axis]) == 0 && GameInput.instance.lastValues[(int)axis] == 1;
+    }
+
+    public static Vector3 mousePosition {
+        get {
+            return Input.mousePosition;
+        }
     }
 }
 
