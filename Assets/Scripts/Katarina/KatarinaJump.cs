@@ -20,14 +20,14 @@ public class KatarinaJump : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (!jumping && groundcheck.onGround && Input.GetAxis(InputAxes.jump) == 1) {
+        if (!jumping && groundcheck.onGround && GameInput.GetAxis(InputAxes.jump) == 1) {
             jumping = true;
             startingHeight = transform.position.y;
             animator.SetTrigger("jumped");
         }
         else if (jumping) {
             rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpSpeed);
-            if (Input.GetAxis(InputAxes.jump) != 1 || transform.position.y - startingHeight > maxJumpHeight) {
+            if (GameInput.GetAxis(InputAxes.jump) != 1 || transform.position.y - startingHeight > maxJumpHeight) {
                 jumping = false;
                 rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, jumpSpeed / 2);
                 animator.SetTrigger("endedJump");

@@ -11,7 +11,7 @@ public class KatarinaThrowDagger : MonoBehaviour {
 
     void Update() {
         cooldown += Time.deltaTime;
-        if (cooldown > cooldownTime && Input.GetAxis(InputAxes.daggerThrow) != 0) {
+        if (cooldown > cooldownTime && GameInput.GetAxisDown(InputAxes.daggerThrow)) {
             cooldown = 0;
             Vector2 launchVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             var dagger = Instantiate(daggerPrefab);
