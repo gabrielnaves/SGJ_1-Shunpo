@@ -296,6 +296,8 @@ GameObject:
   - component: {fileID: 1296761603}
   - component: {fileID: 1296761604}
   - component: {fileID: 1296761605}
+  - component: {fileID: 1296761606}
+  - component: {fileID: 1296761607}
   m_Layer: 9
   m_Name: Katarina
   m_TagString: Player
@@ -373,9 +375,9 @@ Rigidbody2D:
   m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -421,6 +423,31 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1296761606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1296761600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a976e4b982fa5e4b9691bcb464e9fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accel: 6
+--- !u!114 &1296761607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1296761600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff81e5c0bdc99bf4eb65a5f69284dd46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSpeed: 20
+  maxJumpHeight: 2
 --- !u!1 &1682179668
 GameObject:
   m_ObjectHideFlags: 0
