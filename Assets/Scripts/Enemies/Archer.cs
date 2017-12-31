@@ -11,6 +11,7 @@ public class Archer : MonoBehaviour {
 
     bool shooting;
     float elapsedTime;
+    HitPoints hitPoints;
 
     public void ShootArrow() {
         shooting = false;
@@ -20,11 +21,19 @@ public class Archer : MonoBehaviour {
         arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(arrowVelocity, 0);
     }
 
+    void Start() {
+        hitPoints = GetComponent<HitPoints>();
+    }
+
     void Update() {
         elapsedTime += Time.deltaTime;
         if (!shooting && elapsedTime > shootingTime) {
             shooting = true;
             GetComponent<Animator>().SetTrigger("shoot");
+        }
+        if (hitPoints.Died()) {
+            GetComponent<Collider2D>().enabled = false;
+            enabled = false;
         }
     }
 }

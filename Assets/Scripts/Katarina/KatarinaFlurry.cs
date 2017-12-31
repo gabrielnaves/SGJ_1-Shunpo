@@ -11,7 +11,6 @@ public class KatarinaFlurry : MonoBehaviour {
     public bool active;
 
     float elapsedTime;
-    float gravityScale;
 
     void OnTriggerEnter2D(Collider2D other) {
         if ((flurryEnabler.value & 1 << other.gameObject.layer) != 0 && !active) {
@@ -38,7 +37,6 @@ public class KatarinaFlurry : MonoBehaviour {
         katarina.GetComponent<KatarinaMovement>().enabled = false;
         katarina.GetComponent<KatarinaJump>().enabled = false;
         katarina.GetComponent<KatarinaShunpo>().enabled = false;
-        gravityScale = katarina.GetComponent<Rigidbody2D>().gravityScale;
         katarina.GetComponent<Rigidbody2D>().gravityScale = 0;
         katarina.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         flurry.SetActive(true);
@@ -52,7 +50,7 @@ public class KatarinaFlurry : MonoBehaviour {
         katarina.GetComponent<KatarinaShunpo>().enabled = true;
         katarina.GetComponent<KatarinaJump>().enabled = true;
         katarina.GetComponent<KatarinaJump>().Jump();
-        katarina.GetComponent<Rigidbody2D>().gravityScale = gravityScale;
+        katarina.GetComponent<Rigidbody2D>().gravityScale = Katarina.instance.gravityScale;
         flurry.SetActive(false);
     }
 }
