@@ -18,7 +18,7 @@ public class Archer : MonoBehaviour {
         elapsedTime = 0;
         var arrow = Instantiate(arrowPrefab);
         arrow.transform.position = shootingPoint.position;
-        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(arrowVelocity, 0);
+        arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(arrowVelocity * Mathf.Sign((shootingPoint.position - transform.position).x), 0);
     }
 
     void Start() {
