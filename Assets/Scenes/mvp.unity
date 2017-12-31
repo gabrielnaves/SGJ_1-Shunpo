@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f5faf07fc9c9442a8f9689cbc97441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveTime: 0
+  waveTime: 10
   elapsedTime: 0
   waveCount: 0
 --- !u!1 &105492390

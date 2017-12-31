@@ -23,7 +23,7 @@ public class Archer : MonoBehaviour {
 
     void Start() {
         hitPoints = GetComponent<HitPoints>();
-        shootingTime *= (1 - (float)EnemySpawner.instance.waveCount / 10);
+        shootingTime *= (1 - (float)(EnemySpawner.instance.waveCount-1) / EnemySpawner.instance.startingWaveTime);
     }
 
     void Update() {
