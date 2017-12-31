@@ -9,6 +9,7 @@ public enum InputAxes {
     daggerThrow,
     preparation,
     shunpo,
+    deathLotus,
     slowMotion
 }
 
@@ -23,6 +24,7 @@ public class GameInput : MonoBehaviour {
         "DaggerThrow",
         "Preparation",
         "Shunpo",
+        "DeathLotus",
         "SlowMotion"
     };
 

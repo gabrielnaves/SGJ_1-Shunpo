@@ -34,8 +34,10 @@ public class Swordsman : MonoBehaviour {
         else if (!attacking && elapsedTime >= attackTime)
             StartAttack();
         if (GetComponent<HitPoints>().Died()) {
-            if (Katarina.instance)
+            if (Katarina.instance) {
                 Katarina.instance.GetComponent<KatarinaShunpo>().cooldown += Katarina.instance.killCDReduction;
+                Katarina.instance.GetComponentInChildren<KatarinaDeathLotus>().cooldown += Katarina.instance.killCDReduction;
+            }
             KillCount.instance.IncreaseCount();
             GetComponent<Collider2D>().enabled = false;
             enabled = false;

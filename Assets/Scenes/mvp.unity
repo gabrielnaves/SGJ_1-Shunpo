@@ -396,8 +396,8 @@ MonoBehaviour:
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Shunpo: '
 --- !u!222 &170842003
@@ -1902,6 +1902,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1236651127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1236651128}
+  - component: {fileID: 1236651129}
+  m_Layer: 9
+  m_Name: Death Lotus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1236651128
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1236651127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1296761601}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1236651129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1236651127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6ea392bacf39a4cb7c6e40b967f67a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 120
+  cooldown: 0
+  daggerTime: 0.01
+  lotusDuration: 1.5
+  angleIncrement: 37
+  daggerVelocity: 30
+  flurry: {fileID: 1920337751}
+  daggerPrefab: {fileID: 1772937220502408, guid: eb234d9b6a023274aa0c37f59ecdbb2c,
+    type: 2}
 --- !u!1 &1251389555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,8 +2106,8 @@ MonoBehaviour:
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Lotus:'
 --- !u!222 &1283553183
@@ -2108,6 +2157,7 @@ Transform:
   - {fileID: 1618215968}
   - {fileID: 1251389556}
   - {fileID: 442637390}
+  - {fileID: 1236651128}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2308,6 +2358,7 @@ GameObject:
   - component: {fileID: 1298172212}
   - component: {fileID: 1298172214}
   - component: {fileID: 1298172213}
+  - component: {fileID: 1298172215}
   m_Layer: 5
   m_Name: Bar Amount
   m_TagString: Untagged
@@ -2366,6 +2417,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1298172211}
+--- !u!114 &1298172215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1298172211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58984670675380c4bbf5367f9a2ca529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1346469677
 GameObject:
   m_ObjectHideFlags: 0
