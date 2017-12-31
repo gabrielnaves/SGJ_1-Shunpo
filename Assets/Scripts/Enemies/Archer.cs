@@ -32,6 +32,7 @@ public class Archer : MonoBehaviour {
             GetComponent<Animator>().SetTrigger("shoot");
         }
         if (hitPoints.Died()) {
+            KillCount.instance.IncreaseCount();
             GetComponent<Collider2D>().enabled = false;
             enabled = false;
         }
