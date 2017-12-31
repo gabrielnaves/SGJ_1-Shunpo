@@ -10,6 +10,7 @@ public class KatarinaDeath : StateMachineBehaviour {
         katarina.GetComponent<KatarinaMovement>().enabled = false;
         katarina.GetComponent<KatarinaJump>().enabled = false;
         katarina.GetComponent<KatarinaShunpo>().enabled = false;
+        katarina.GetComponentInChildren<KatarinaThrowDagger>().enabled = false;
         katarina.GetComponentInChildren<KatarinaFlurry>().enabled = false;
         katarina.GetComponent<Rigidbody2D>().gravityScale = 0;
         katarina.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
