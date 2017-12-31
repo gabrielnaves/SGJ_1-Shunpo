@@ -9,6 +9,9 @@ public class HitPoints : MonoBehaviour {
 
     void Awake() {
         hitpoints = startingHitpoints;
+        var hpBar = GetComponentInChildren<HealthBar>();
+        if (hpBar)
+            hpBar.SetHitPoints(this);
     }
 
     public void DealDamage(int amount = 1) {
