@@ -11,6 +11,7 @@ public class GameOver : MonoBehaviour {
     public float gameTime = 60 * 5; // 5 min
 
     bool gameEnded;
+    float timeSinceEnd;
 
     void Awake() {
         instance = this;
@@ -27,8 +28,9 @@ public class GameOver : MonoBehaviour {
                 gameEnded = true;
         }
         else {
+            timeSinceEnd += Time.unscaledDeltaTime;
             gameOverText.SetActive(true);
-            if (GameInput.GetAxisDown(InputAxes.jump))
+            if (GameInput.GetAxisDown(InputAxes.jump) && timeSinceEnd > 0.5f)
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
