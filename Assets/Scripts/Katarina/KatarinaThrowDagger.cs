@@ -11,7 +11,7 @@ public class KatarinaThrowDagger : MonoBehaviour {
 
     void Update() {
         cooldown += Time.deltaTime;
-        if (cooldown > cooldownTime) {
+        if (cooldown > cooldownTime && DaggerCount.instance.currentDaggers > 0) {
             if (GameInput.GetAxisDown(InputAxes.daggerThrow))
                 ThrowDagger(Camera.main.ScreenToWorldPoint(GameInput.mousePosition) - transform.position);
             if (GameInput.GetAxisDown(InputAxes.preparation))
@@ -25,5 +25,6 @@ public class KatarinaThrowDagger : MonoBehaviour {
         dagger.transform.position = transform.position + (Vector3)(launchVector.normalized * 0.27f);
         dagger.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(launchVector.y, launchVector.x) * Mathf.Rad2Deg - 90);
         dagger.GetComponent<Rigidbody2D>().velocity = launchVector.normalized * (preparation ? daggerVelocity * 0.75f : daggerVelocity);
+        DaggerCount.instance.ThrewDagger();
     }
 }

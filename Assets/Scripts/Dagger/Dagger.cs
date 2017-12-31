@@ -6,9 +6,7 @@ public class Dagger : MonoBehaviour {
 
     public float ricochetVelocity = 10f;
     public float angularVelocity;
-    public float maxLifetime = 3f;
 
-    [HideInInspector] public float lifetime = 0f;
     [HideInInspector] public float timeSinceInstantiation = 0f;
 
     bool firstHit;
@@ -26,11 +24,6 @@ public class Dagger : MonoBehaviour {
         timeSinceInstantiation += Time.unscaledDeltaTime;
         if (!firstHit)
             LookToMovement();
-        else {
-            lifetime += Time.deltaTime;
-            if (lifetime > maxLifetime)
-                Destroy(gameObject);
-        }
     }
 
     void LookToMovement() {

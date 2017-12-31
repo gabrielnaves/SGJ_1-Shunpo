@@ -17,6 +17,7 @@ public class KatarinaFlurry : MonoBehaviour {
             if (other.transform.parent.GetComponent<Dagger>().timeSinceInstantiation > 0.1f) {
                 ActivateFlurry();
                 Destroy(other.transform.parent.gameObject);
+                DaggerCount.instance.CollectedDagger();
             }
         }
     }
