@@ -10,7 +10,7 @@ public class KatarinaThrowDagger : MonoBehaviour {
     public float daggerVelocity = 20f;
 
     void Update() {
-        cooldown += Time.deltaTime;
+        cooldown += Time.unscaledDeltaTime;
         if (cooldown > cooldownTime && DaggerCount.instance.currentDaggers > 0) {
             if (GameInput.GetAxisDown(InputAxes.daggerThrow))
                 ThrowDagger(Camera.main.ScreenToWorldPoint(GameInput.mousePosition) - transform.position);

@@ -1865,7 +1865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da1301b16fb0af4db143ed73fa34fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScale: 0.1
+  timeScale: 0.05
 --- !u!1 &1218932443
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,7 +3634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   daggerPrefab: {fileID: 1772937220502408, guid: eb234d9b6a023274aa0c37f59ecdbb2c,
     type: 2}
-  cooldownTime: 0.2
+  cooldownTime: 0.4
   cooldown: 0
   daggerVelocity: 30
 --- !u!1 &2105914391

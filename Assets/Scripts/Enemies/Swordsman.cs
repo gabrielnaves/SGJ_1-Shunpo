@@ -14,8 +14,17 @@ public class Swordsman : MonoBehaviour {
 
     Animator animator;
 
-    void Awake() {
+    void Start() {
         animator = GetComponent<Animator>();
+        int waveCount = EnemySpawner.instance.waveCount;
+        if (waveCount > 3)
+            attackDuration = 1.5f;
+        if (waveCount > 5)
+            attackDuration = 2f;
+        if (waveCount > 10)
+            attackDuration = 3f;
+        if (waveCount > 20)
+            attackDuration = 5f;
     }
 
     void Update() {
@@ -25,7 +34,8 @@ public class Swordsman : MonoBehaviour {
         else if (!attacking && elapsedTime >= attackTime)
             StartAttack();
         if (GetComponent<HitPoints>().Died()) {
-            Katarina.instance.GetComponent<KatarinaShunpo>().cooldown += Katarina.instance.killCDReduction;
+            if (Katarina.instance)
+                Katarina.instance.GetComponent<KatarinaShunpo>().cooldown += Katarina.instance.killCDReduction;
             KillCount.instance.IncreaseCount();
             GetComponent<Collider2D>().enabled = false;
             enabled = false;
@@ -54,9 +64,11 @@ public class Swordsman : MonoBehaviour {
     }
 
     void MoveTowardsPlayer() {
-        var distance = Katarina.instance.transform.position.x - transform.position.x;
-        var position = transform.position;
-        position.x += (velocity * Time.deltaTime * Mathf.Sign(distance));
-        transform.position = position;
+        if (Katarina.instance) {
+            var distance = Katarina.instance.transform.position.x - transform.position.x;
+            var position = transform.position;
+            position.x += (velocity * Time.deltaTime * Mathf.Sign(distance));
+            transform.position = position;
+        }
     }
 }
