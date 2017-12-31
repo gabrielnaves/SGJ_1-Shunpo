@@ -9,10 +9,12 @@ public class ArcherSpawner : MonoBehaviour {
 
     List<Transform> spawnLocations = new List<Transform>();
     List<GameObject> archers = new List<GameObject>();
+    int leftovers;
 
     void Start() {
         foreach (Transform child in transform)
             spawnLocations.Add(child);
+        leftovers = spawnLocations.Count - 1;
     }
 
     void Update() {
@@ -28,7 +30,7 @@ public class ArcherSpawner : MonoBehaviour {
         int selected = Random.Range(0, shuffleLocations.Count);
         CreateArcher(count++, shuffleLocations[selected]);
         shuffleLocations.RemoveAt(selected);
-        while (shuffleLocations.Count > 0) {
+        while (shuffleLocations.Count > leftovers) {
             elapsedTime += Time.deltaTime;
             if (elapsedTime >= archerDelay) {
                 selected = Random.Range(0, shuffleLocations.Count);
@@ -38,6 +40,7 @@ public class ArcherSpawner : MonoBehaviour {
             }
             yield return null;
         }
+        if (leftovers > 0) leftovers--;
     }
 
     void CreateArcher(int i, Transform location) {

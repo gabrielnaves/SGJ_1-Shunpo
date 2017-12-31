@@ -26,30 +26,30 @@ public class GameInput : MonoBehaviour {
         "SlowMotion"
     };
 
-    float[] lastValues;
+    int[] lastValues;
 
     void Awake() {
         if (instance)
             Debug.LogError("Multiple instances of game input");
         instance = this;
-        lastValues = new float[axes.Length];
+        lastValues = new int[axes.Length];
     }
 
     void LateUpdate() {
         for (int i = 0; i < lastValues.Length; ++i)
-            lastValues[i] = Input.GetAxis(axes[i]);
+            lastValues[i] = (int)Input.GetAxis(axes[i]);
     }
 
-    public static float GetAxis(InputAxes axis) {
-        return Input.GetAxis(axes[(int)axis]);
+    public static int GetAxis(InputAxes axis) {
+        return (int)Mathf.Ceil(Input.GetAxis(axes[(int)axis]));
     }
 
     public static bool GetAxisDown(InputAxes axis) {
-        return Input.GetAxis(axes[(int)axis]) == 1 && GameInput.instance.lastValues[(int)axis] == 0;
+        return GameInput.GetAxis(axis) == 1 && GameInput.instance.lastValues[(int)axis] == 0;
     }
 
     public static bool GetAxisUp(InputAxes axis) {
-        return Input.GetAxis(axes[(int)axis]) == 0 && GameInput.instance.lastValues[(int)axis] == 1;
+        return GameInput.GetAxis(axis) == 0 && GameInput.instance.lastValues[(int)axis] == 1;
     }
 
     public static Vector3 mousePosition {

@@ -12,6 +12,14 @@ public class KatarinaSlowMotion : MonoBehaviour {
     }
 
     void Update() {
+        CheckSlowMotion();
+    }
+
+    void LateUpdate() {
+        CheckSlowMotion();
+    }
+
+    void CheckSlowMotion() {
         var slowMotion = SlowMotion.instance;
         if (slowMotion.isActive) {
             slowMotionTime -= Time.unscaledDeltaTime;
