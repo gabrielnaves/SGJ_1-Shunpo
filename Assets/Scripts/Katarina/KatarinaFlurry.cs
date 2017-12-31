@@ -14,9 +14,9 @@ public class KatarinaFlurry : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other) {
         if ((flurryEnabler.value & 1 << other.gameObject.layer) != 0 && !active) {
-            if (other.transform.parent.GetComponent<Dagger>().timeSinceInstantiation > 0.1f) {
+            if (other.transform.parent.parent.GetComponent<Dagger>().timeSinceInstantiation > 0.1f) {
                 ActivateFlurry();
-                Destroy(other.transform.parent.gameObject);
+                Destroy(other.transform.parent.parent.gameObject);
                 DaggerCount.instance.CollectedDagger();
             }
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArcherSpawner : MonoBehaviour {
 
     public GameObject archerPrefab;
+    public float archerDelay = 0.5f;
 
     List<Transform> spawnLocations = new List<Transform>();
     List<GameObject> archers = new List<GameObject>();
@@ -20,14 +21,31 @@ public class ArcherSpawner : MonoBehaviour {
                 archers.RemoveAt(i--);
     }
 
-    public void SpawnWave() {
-        for (int i = 0; i < spawnLocations.Count; ++i) {
-            var archer = Instantiate(archerPrefab);
-            archer.transform.position = spawnLocations[i].position;
-            archer.transform.rotation = spawnLocations[i].rotation;
-            archer.name += i;
-            archers.Add(archer);
+    public IEnumerator SpawnWave() {
+        List<Transform> shuffleLocations = new List<Transform>(spawnLocations);
+        float elapsedTime = 0f;
+        int count = 0;
+        int selected = Random.Range(0, shuffleLocations.Count);
+        CreateArcher(count++, shuffleLocations[selected]);
+        shuffleLocations.RemoveAt(selected);
+        while (shuffleLocations.Count > 0) {
+            elapsedTime += Time.deltaTime;
+            if (elapsedTime >= archerDelay) {
+                selected = Random.Range(0, shuffleLocations.Count);
+                CreateArcher(count++, shuffleLocations[selected]);
+                shuffleLocations.RemoveAt(selected);
+                elapsedTime = 0;
+            }
+            yield return null;
         }
+    }
+
+    void CreateArcher(int i, Transform location) {
+        var archer = Instantiate(archerPrefab);
+        archer.transform.position = location.position;
+        archer.transform.rotation = location.rotation;
+        archer.name += i;
+        archers.Add(archer);
     }
 
     public bool NoEnemies() {

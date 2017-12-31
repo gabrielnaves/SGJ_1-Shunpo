@@ -8,6 +8,14 @@ public class EnemySpawner : MonoBehaviour {
 
     public float waveTime = 10f;
     public float elapsedTime;
+    public int waveCount;
+
+    public float timeToNextWave {
+        get {
+            if (OnWave()) return -1f;
+            return waveTime - elapsedTime;
+        }
+    }
 
     ArcherSpawner archerSpawner;
 
@@ -19,8 +27,9 @@ public class EnemySpawner : MonoBehaviour {
     void Update() {
         elapsedTime += Time.unscaledDeltaTime;
         if (elapsedTime > waveTime && !OnWave()) {
-            archerSpawner.SpawnWave();
+            StartCoroutine(archerSpawner.SpawnWave());
             elapsedTime = 0f;
+            waveCount++;
         }
         if (OnWave())
             elapsedTime = 0f;

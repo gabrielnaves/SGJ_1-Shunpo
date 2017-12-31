@@ -150,7 +150,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 4491546553463004}
   arrowPrefab: {fileID: 1984606167269016, guid: 0c640dd5f54ac854b8cb8beded92a77d,
     type: 2}
-  shootingTime: 0.5
+  shootingTime: 2
   arrowVelocity: 20
 --- !u!114 &114947926689885762
 MonoBehaviour:

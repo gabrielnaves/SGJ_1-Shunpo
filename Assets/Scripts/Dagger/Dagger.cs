@@ -6,6 +6,8 @@ public class Dagger : MonoBehaviour {
 
     public float ricochetVelocity = 10f;
     public float angularVelocity;
+    public GameObject collidersForEnemy;
+    public GameObject collidersWithoutEnemy;
 
     [HideInInspector] public float timeSinceInstantiation = 0f;
 
@@ -17,6 +19,11 @@ public class Dagger : MonoBehaviour {
             rigidbody.velocity = new Vector2(0, ricochetVelocity);
             rigidbody.angularVelocity = angularVelocity * 1000f;
             firstHit = true;
+            GetComponent<Damage>().enabled = false;
+        }
+        if (other.gameObject.tag == "Enemy" && collidersForEnemy.activeInHierarchy) {
+            collidersForEnemy.SetActive(false);
+            collidersWithoutEnemy.SetActive(true);
         }
     }
 

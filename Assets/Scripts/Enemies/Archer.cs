@@ -6,7 +6,7 @@ public class Archer : MonoBehaviour {
 
     public Transform shootingPoint;
     public GameObject arrowPrefab;
-    public float shootingTime = 0.5f;
+    public float shootingTime = 1.5f;
     public float arrowVelocity = 20f;
 
     bool shooting;
@@ -23,6 +23,7 @@ public class Archer : MonoBehaviour {
 
     void Start() {
         hitPoints = GetComponent<HitPoints>();
+        shootingTime *= (1 - (float)EnemySpawner.instance.waveCount / 10);
     }
 
     void Update() {
