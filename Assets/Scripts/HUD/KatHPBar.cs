@@ -1,22 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ShunpoBar : MonoBehaviour {
-
+public class KatHPBar : MonoBehaviour {
     float maxWidth;
-    KatarinaShunpo katShunpo;
+    HitPoints katHP;
     RectTransform rectTransform;
 
     void Start() {
-        katShunpo = Katarina.instance.GetComponent<KatarinaShunpo>();
+        katHP = Katarina.instance.GetComponent<HitPoints>();
         rectTransform = GetComponent<RectTransform>();
         maxWidth = rectTransform.sizeDelta.x;
     }
 
     void Update() {
-        float currentWidth = katShunpo.cooldown / katShunpo.cooldownTime * maxWidth;
+        float currentWidth = (float)katHP.hitpoints / (float)katHP.startingHitpoints * maxWidth;
         rectTransform.sizeDelta = new Vector2(currentWidth, rectTransform.sizeDelta.y);
     }
 }
