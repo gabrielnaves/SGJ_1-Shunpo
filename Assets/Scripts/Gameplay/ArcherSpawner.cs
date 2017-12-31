@@ -51,7 +51,7 @@ public class ArcherSpawner : MonoBehaviour {
         archers.Add(archer);
     }
 
-    public bool NoEnemies() {
-        return archers.Count == 0;
+    public bool HasEnemies() {
+        return archers.Count > 0;
     }
 }

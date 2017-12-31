@@ -23,6 +23,7 @@ public class Archer : MonoBehaviour {
 
     void Start() {
         hitPoints = GetComponent<HitPoints>();
+        if (EnemySpawner.instance.waveCount > 8) hitPoints.hitpoints *= 2;
         shootingTime *= (1 - (float)(EnemySpawner.instance.waveCount-1) / EnemySpawner.instance.startingWaveTime);
     }
 

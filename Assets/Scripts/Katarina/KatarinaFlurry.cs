@@ -43,6 +43,7 @@ public class KatarinaFlurry : MonoBehaviour {
         katarina.GetComponent<KatarinaShunpo>().enabled = false;
         katarina.GetComponent<Rigidbody2D>().gravityScale = 0;
         katarina.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        katarina.GetComponent<HitPoints>().invincible = true;
         flurry.SetActive(true);
     }
 
@@ -55,6 +56,7 @@ public class KatarinaFlurry : MonoBehaviour {
         katarina.GetComponent<KatarinaJump>().enabled = true;
         katarina.GetComponent<KatarinaJump>().Jump();
         katarina.GetComponent<Rigidbody2D>().gravityScale = Katarina.instance.gravityScale;
+        katarina.GetComponent<HitPoints>().invincible = false;
         flurry.SetActive(false);
     }
 }

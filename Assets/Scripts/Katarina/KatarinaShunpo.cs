@@ -51,6 +51,7 @@ public class KatarinaShunpo : MonoBehaviour {
         katarina.GetComponentInChildren<KatarinaFlurry>().enabled = false;
         katarina.GetComponent<Rigidbody2D>().gravityScale = 0;
         katarina.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        katarina.GetComponent<HitPoints>().invincible = true;
     }
 
     public void EnableOtherKatarinaStates() {
@@ -61,5 +62,6 @@ public class KatarinaShunpo : MonoBehaviour {
         katarina.GetComponentInChildren<KatarinaFlurry>().enabled = true;
         katarina.GetComponent<Rigidbody2D>().gravityScale = Katarina.instance.gravityScale;
         katarina.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        katarina.GetComponent<HitPoints>().invincible = false;
     }
 }

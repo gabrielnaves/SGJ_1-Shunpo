@@ -20,10 +20,12 @@ public class EnemySpawner : MonoBehaviour {
     }
 
     ArcherSpawner archerSpawner;
+    SwordsmanSpawner swordsmanSpawner;
 
     void Awake() {
         instance = this;
         archerSpawner = GetComponentInChildren<ArcherSpawner>();
+        swordsmanSpawner = GetComponentInChildren<SwordsmanSpawner>();
         startingWaveTime = waveTime;
     }
 
@@ -36,11 +38,12 @@ public class EnemySpawner : MonoBehaviour {
     }
 
     public bool OnWave() {
-        return !archerSpawner.NoEnemies();
+        return archerSpawner.HasEnemies() || swordsmanSpawner.HasEnemies();
     }
 
     void StartWave() {
         StartCoroutine(archerSpawner.SpawnWave());
+        StartCoroutine(swordsmanSpawner.SpawnWave());
         elapsedTime = 0f;
         waveCount++;
         waveTime = startingWaveTime * (1 - (float)EnemySpawner.instance.waveCount / startingWaveTime);
