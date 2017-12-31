@@ -26,5 +26,7 @@ public class KatarinaThrowDagger : MonoBehaviour {
         dagger.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(launchVector.y, launchVector.x) * Mathf.Rad2Deg - 90);
         dagger.GetComponent<Rigidbody2D>().velocity = launchVector.normalized * (preparation ? daggerVelocity * 0.75f : daggerVelocity);
         DaggerCount.instance.ThrewDagger();
+        if (preparation)
+            dagger.GetComponent<Damage>().enabled = false;
     }
 }
