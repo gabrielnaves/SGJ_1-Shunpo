@@ -7,6 +7,7 @@ public class Katarina : MonoBehaviour {
     static public Katarina instance { get; private set; }
 
     public float gravityScale = 6;
+    public float killCDReduction = 5f;
 
     void Awake() {
         if (instance)

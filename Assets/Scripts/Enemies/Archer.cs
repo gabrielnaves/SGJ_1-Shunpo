@@ -35,6 +35,7 @@ public class Archer : MonoBehaviour {
             KillCount.instance.IncreaseCount();
             GetComponent<Collider2D>().enabled = false;
             enabled = false;
+            Katarina.instance.GetComponent<KatarinaShunpo>().cooldown += Katarina.instance.killCDReduction;
         }
     }
 }
