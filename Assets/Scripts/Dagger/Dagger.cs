@@ -20,15 +20,13 @@ public class Dagger : MonoBehaviour {
             rigidbody.angularVelocity = angularVelocity * 1000f;
             firstHit = true;
             GetComponent<Damage>().enabled = false;
-        }
-        if (other.gameObject.tag == "Enemy" && collidersForEnemy.activeInHierarchy) {
             collidersForEnemy.SetActive(false);
             collidersWithoutEnemy.SetActive(true);
         }
     }
 
     void Update() {
-        timeSinceInstantiation += Time.unscaledDeltaTime;
+        timeSinceInstantiation += Time.deltaTime;
         if (!firstHit)
             LookToMovement();
     }

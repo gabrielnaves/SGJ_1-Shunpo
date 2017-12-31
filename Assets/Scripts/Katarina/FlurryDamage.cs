@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlurryDamage : MonoBehaviour {
 
     public LayerMask damagingLayers;
+    public int damage = 1;
     List<GameObject> hitObjects = new List<GameObject>();
 
     void OnDisable() {
@@ -16,7 +17,7 @@ public class FlurryDamage : MonoBehaviour {
             if (!hitObjects.Contains(other.gameObject)) {
                 var hitpoints = other.gameObject.GetComponent<HitPoints>();
                 if (hitpoints)
-                    hitpoints.DealDamage();
+                    hitpoints.DealDamage(damage);
                 hitObjects.Add(other.gameObject);
             }
         }
