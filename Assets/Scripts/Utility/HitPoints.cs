@@ -17,6 +17,7 @@ public class HitPoints : MonoBehaviour {
 
     public void DealDamage(int amount = 1) {
         if (!invincible) {
+            CameraShake.instance.Activate();
             hitpoints -= amount;
             if (hitpoints <= 0)
                 Die();
