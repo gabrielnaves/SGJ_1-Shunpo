@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KatarinaFlurry : MonoBehaviour {
@@ -9,8 +8,6 @@ public class KatarinaFlurry : MonoBehaviour {
     public GameObject katarina;
     public LayerMask flurryEnabler;
     public bool active;
-
-    float elapsedTime;
 
     void OnTriggerStay2D(Collider2D other) {
         if (enabled) {
@@ -25,17 +22,8 @@ public class KatarinaFlurry : MonoBehaviour {
         }
     }
 
-    void Update() {
-        if (active) {
-            elapsedTime += Time.deltaTime;
-            if (elapsedTime >= flurryTime)
-                DeactivateFlurry();
-        }
-    }
-
     void ActivateFlurry() {
         active = true;
-        elapsedTime = 0;
         katarina.GetComponent<SpriteRenderer>().enabled = false;
         katarina.GetComponent<BoxCollider2D>().enabled = false;
         katarina.GetComponent<KatarinaMovement>().enabled = false;
@@ -45,6 +33,12 @@ public class KatarinaFlurry : MonoBehaviour {
         katarina.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         katarina.GetComponent<HitPoints>().invincible = true;
         flurry.SetActive(true);
+        StartCoroutine(WaitForFlurry());
+    }
+
+    IEnumerator WaitForFlurry() {
+        yield return new WaitForSeconds(flurryTime);
+        DeactivateFlurry();
     }
 
     void DeactivateFlurry() {
