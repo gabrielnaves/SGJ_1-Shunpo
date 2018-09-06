@@ -15,7 +15,7 @@ public class KatarinaMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        float input = GameInput.GetAxis(InputAxes.horizontal);
+        float input = GameInput.GetAxis(InputAxis.Horizontal);
         if (!Mathf.Approximately(input, 0)) {
             rigidbody2d.velocity = new Vector2(accel * input, rigidbody2d.velocity.y);
             if (input > 0)

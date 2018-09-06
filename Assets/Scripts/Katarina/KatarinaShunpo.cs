@@ -13,7 +13,7 @@ public class KatarinaShunpo : MonoBehaviour {
 
     void Update() {
         cooldown += Time.deltaTime;
-        if (cooldown >= cooldownTime && GameInput.GetAxisDown(InputAxes.shunpo)) {
+        if (cooldown >= cooldownTime && GameInput.GetAxisDown(InputAxis.Shunpo)) {
             cooldown = 0f;
             ExecuteShunpo();
         }

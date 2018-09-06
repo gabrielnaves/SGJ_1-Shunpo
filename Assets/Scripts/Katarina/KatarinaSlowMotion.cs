@@ -23,13 +23,13 @@ public class KatarinaSlowMotion : MonoBehaviour {
         var slowMotion = SlowMotion.instance;
         if (slowMotion.isActive) {
             slowMotionTime -= Time.unscaledDeltaTime;
-            if (GameInput.GetAxisUp(InputAxes.slowMotion) || slowMotionTime < 0)
+            if (GameInput.GetAxisUp(InputAxis.SlowMotion) || slowMotionTime < 0)
                 slowMotion.Deactivate();
         }
         else {
             slowMotionTime += Time.unscaledDeltaTime;
             if (slowMotionTime > maxSlowMotionTime) slowMotionTime = maxSlowMotionTime;
-            if (GameInput.GetAxisDown(InputAxes.slowMotion))
+            if (GameInput.GetAxisDown(InputAxis.SlowMotion))
                 slowMotion.Activate();
         }
     }

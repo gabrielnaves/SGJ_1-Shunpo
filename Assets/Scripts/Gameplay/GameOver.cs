@@ -30,7 +30,7 @@ public class GameOver : MonoBehaviour {
         else {
             timeSinceEnd += Time.unscaledDeltaTime;
             gameOverText.SetActive(true);
-            if (GameInput.GetAxisDown(InputAxes.jump) && timeSinceEnd > 0.5f)
+            if (GameInput.GetAxisDown(InputAxis.Jump) && timeSinceEnd > 0.5f)
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

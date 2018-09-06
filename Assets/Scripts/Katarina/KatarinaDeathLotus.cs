@@ -22,7 +22,7 @@ public class KatarinaDeathLotus : MonoBehaviour {
     void Update() {
         if (!active) {
             cooldown += Time.deltaTime;
-            if (cooldown >= cooldownTime && GameInput.GetAxisDown(InputAxes.deathLotus)) {
+            if (cooldown >= cooldownTime && GameInput.GetAxisDown(InputAxis.DeathLotus)) {
                 cooldown = 0f;
                 StartCoroutine(DeathLotus());
             }
