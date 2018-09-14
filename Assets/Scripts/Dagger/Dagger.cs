@@ -35,4 +35,13 @@ public class Dagger : MonoBehaviour {
         var velocity = GetComponent<Rigidbody2D>().velocity;
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90);
     }
+
+    bool collected = false;
+    public void CollectDagger() {
+        if (!collected) {
+            collected = true;
+            DaggerCount.instance.CollectedDagger();
+            Destroy(gameObject);
+        }
+    }
 }
